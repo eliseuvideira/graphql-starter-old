@@ -1,7 +1,12 @@
 import http from "http";
 import app from "./app";
+import { apollo } from "./apollo";
 
 (async () => {
+  await apollo.start();
+
+  apollo.applyMiddleware({ app });
+
   const server = http.createServer(app);
 
   const port = +(process.env.PORT || 3000);
