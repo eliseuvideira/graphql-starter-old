@@ -1,3 +1,10 @@
+import dotenv from "@ev-fns/dotenv";
+
+dotenv({}, ({ NODE_ENV, npm_package_version }) => {
+  console.info(NODE_ENV);
+  console.info(npm_package_version);
+});
+
 import http from "http";
 import app from "./app";
 import { apollo } from "./apollo";
@@ -17,7 +24,7 @@ import { apollo } from "./apollo";
     server.listen(port);
   });
 
-  console.info(`listening at http://localhost:${port}`);
+  console.info(`http://localhost:${port}`);
 })().catch((err) => {
   console.error(err);
   process.exit(1);

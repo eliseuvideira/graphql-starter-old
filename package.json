@@ -14,6 +14,7 @@
     "typescript": "^4.2.4"
   },
   "dependencies": {
+    "@ev-fns/dotenv": "^0.2.2",
     "apollo-server-express": "^2.23.0",
     "cors": "^2.8.5",
     "express": "^4.17.1",
