@@ -57,6 +57,13 @@
     dotenv "^8.2.0"
     dotenv-safe "^8.2.0"
 
+"@ev-fns/errors@^0.1.1":
+  version "0.1.1"
+  resolved "https://registry.yarnpkg.com/@ev-fns/errors/-/errors-0.1.1.tgz#8f3cace52757524bacb5e44b63b97a2c3e3c995e"
+  integrity sha512-2yQYBnhbK1mBwkeSplBOolBhXzOg2lcxLoB0N/m/bvkWRBN4inx7AkpYUVzOM/JjJY3uhrEr9cN3AHYejWQSwQ==
+  dependencies:
+    express "^4.17.1"
+
 "@josephg/resolvable@^1.0.0":
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/@josephg/resolvable/-/resolvable-1.0.0.tgz#cd75b09cfad18cd945de9221d403203aa07e3d0a"
