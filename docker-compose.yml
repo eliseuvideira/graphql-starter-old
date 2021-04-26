@@ -4,7 +4,7 @@ services:
   api:
     build: .
     environment:
-      - NODE_ENV=development
+      - NODE_ENV=production
       - PORT=$PORT
     ports:
       - $PORT:$PORT
