@@ -19,4 +19,8 @@ for (const schema of schemas) {
   resolvers.push(content.resolvers);
 }
 
-export const apollo = new ApolloServer({ typeDefs, resolvers });
+const apolloServer = new ApolloServer({ typeDefs, resolvers });
+
+const apollo = apolloServer.getMiddleware();
+
+export default apollo;
