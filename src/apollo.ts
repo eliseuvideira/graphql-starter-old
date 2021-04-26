@@ -1,26 +1,21 @@
-import fs from "fs";
-import path from "path";
-import { ApolloServer, gql } from "apollo-server-express";
+import { ApolloServer, PubSub } from "apollo-server-express";
 import _ from "lodash";
+import { Server } from "http";
+import { resolvers } from "./resolvers/root";
+import { typeDefs } from "./typeDefs/root";
 
-const typeDefs = [
-  gql`
-    type Query {
-      _empty: String
-    }
-  `,
-];
-const resolvers = [];
+const pubsub = new PubSub();
 
-const schemas = fs.readdirSync(path.join(__dirname, "schemas"));
-for (const schema of schemas) {
-  const content = require(path.join(__dirname, "schemas", schema));
-  typeDefs.push(content.typeDefs);
-  resolvers.push(content.resolvers);
-}
-
-const apolloServer = new ApolloServer({ typeDefs, resolvers });
+const apolloServer = new ApolloServer({
+  typeDefs,
+  resolvers,
+  context: () => ({ pubsub }),
+  uploads: false,
+});
 
 const apollo = apolloServer.getMiddleware();
+
+export const installSubscriptions = (server: Server) =>
+  apolloServer.installSubscriptionHandlers(server);
 
 export default apollo;
