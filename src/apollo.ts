@@ -11,6 +11,8 @@ const apolloServer = new ApolloServer({
   resolvers,
   context: () => ({ pubsub }),
   uploads: false,
+  introspection: true,
+  playground: true,
 });
 
 const apollo = apolloServer.getMiddleware();
