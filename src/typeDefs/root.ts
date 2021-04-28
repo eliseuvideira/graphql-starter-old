@@ -6,15 +6,15 @@ export const typeDefs = gql`
 
   type Query {
     api: API!
-    emoji: String!
+    status: String!
   }
 
   type Mutation {
-    emojiUpdate: String!
+    statusUpdate: String!
   }
 
   type Subscription {
-    emojiUpdated: String!
+    statusUpdated: String!
   }
 
   type API {
