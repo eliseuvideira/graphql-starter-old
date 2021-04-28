@@ -64,6 +64,13 @@
   dependencies:
     express "^4.17.1"
 
+"@ev-fns/graphql@^0.1.0":
+  version "0.1.0"
+  resolved "https://registry.yarnpkg.com/@ev-fns/graphql/-/graphql-0.1.0.tgz#976a07c3d427983d42a6dc233ebc44db53ea88b6"
+  integrity sha512-PHBpGpTRRXv0D6rQPVz6EqZpS/57EnJJkhDGQvZSO7jFJxyBk83Mtg23MTjCq6aaDIX5Wz1lfbNp9BRKOi8yMw==
+  dependencies:
+    graphql-subscriptions "^1.2.1"
+
 "@ev-fns/server@^0.2.1":
   version "0.2.1"
   resolved "https://registry.yarnpkg.com/@ev-fns/server/-/server-0.2.1.tgz#28d01a80e658c2a213571f1d5564d5abe55f895e"
@@ -1017,7 +1024,7 @@ graphql-extensions@^0.13.0:
     apollo-server-env "^3.0.0"
     apollo-server-types "^0.7.0"
 
-graphql-subscriptions@^1.0.0:
+graphql-subscriptions@^1.0.0, graphql-subscriptions@^1.2.1:
   version "1.2.1"
   resolved "https://registry.yarnpkg.com/graphql-subscriptions/-/graphql-subscriptions-1.2.1.tgz#2142b2d729661ddf967b7388f7cf1dd4cf2e061d"
   integrity sha512-95yD/tKi24q8xYa7Q9rhQN16AYj5wPbrb8tmHGM3WRc9EBmWrG/0kkMl+tQG8wcEuE9ibR4zyOM31p5Sdr2v4g==
