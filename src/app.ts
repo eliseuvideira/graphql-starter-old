@@ -1,15 +1,14 @@
 import express from "express";
 import cors from "cors";
 import { exception, notFound } from "@ev-fns/errors";
-import apollo from "./apollo";
-import { upload } from "./middlewares/upload";
+import { apollo, apolloUpload } from "./apollo";
 
 const app = express();
 
 app.use(cors());
 
 app.get("/", (req, res) => res.redirect("/graphql"));
-app.use(upload);
+app.use(apolloUpload);
 app.use(apollo);
 
 app.use(notFound);

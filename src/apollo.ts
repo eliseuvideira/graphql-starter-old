@@ -1,23 +1,14 @@
-import { ApolloServer, PubSub } from "apollo-server-express";
 import _ from "lodash";
-import { Server } from "http";
 import { resolvers } from "./resolvers/root";
 import { typeDefs } from "./typeDefs/root";
+import { createApollo } from "@ev-fns/graphql";
 
-const pubsub = new PubSub();
+const MAX_FILE_SIZE = 50 * 1024 * 1024;
+const MAX_FILES = 1;
 
-const apolloServer = new ApolloServer({
+export const { apollo, apolloUpload, installSubscriptions } = createApollo({
   typeDefs,
   resolvers,
-  context: () => ({ pubsub }),
-  uploads: false,
-  introspection: true,
-  playground: true,
+  maxFileSize: MAX_FILE_SIZE,
+  maxFiles: MAX_FILES,
 });
-
-const apollo = apolloServer.getMiddleware();
-
-export const installSubscriptions = (server: Server) =>
-  apolloServer.installSubscriptionHandlers(server);
-
-export default apollo;

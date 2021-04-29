@@ -64,12 +64,16 @@
   dependencies:
     express "^4.17.1"
 
-"@ev-fns/graphql@^0.1.0":
-  version "0.1.0"
-  resolved "https://registry.yarnpkg.com/@ev-fns/graphql/-/graphql-0.1.0.tgz#976a07c3d427983d42a6dc233ebc44db53ea88b6"
-  integrity sha512-PHBpGpTRRXv0D6rQPVz6EqZpS/57EnJJkhDGQvZSO7jFJxyBk83Mtg23MTjCq6aaDIX5Wz1lfbNp9BRKOi8yMw==
+"@ev-fns/graphql@^0.2.5":
+  version "0.2.5"
+  resolved "https://registry.yarnpkg.com/@ev-fns/graphql/-/graphql-0.2.5.tgz#bcbda5c7bbb4a8997c6b4652dfe18b34c0868161"
+  integrity sha512-0gUD4jzCzYpJD6VPFiQrYs8HDdfE7LyqabCzLDvESPklpM7pIUYNRUusY3YrOGE/99i5VRby8yovCf35HBVrqA==
   dependencies:
+    apollo-server-express "^2.23.0"
+    graphql "^15.5.0"
     graphql-subscriptions "^1.2.1"
+    graphql-upload "^11.0.0"
+    lodash "^4.17.21"
 
 "@ev-fns/server@^0.2.1":
   version "0.2.1"
@@ -211,16 +215,6 @@
   integrity sha512-FKVPOCFbhCvZxpVAMhdBdTfVfXUpsh15wFHgqOKxh9N9vzWZVuWCSijZ5T4U34XYNnuj2oduh6xcs1i+LPI+BQ==
   dependencies:
     "@types/node" "*"
-
-"@types/graphql-upload@^8.0.4":
-  version "8.0.4"
-  resolved "https://registry.yarnpkg.com/@types/graphql-upload/-/graphql-upload-8.0.4.tgz#23a8ffb3d2fe6e0ee07e6f16ee9d9d5e995a2f4f"
-  integrity sha512-0TRyJD2o8vbkmJF8InppFcPVcXKk+Rvlg/xvpHBIndSJYpmDWfmtx/ZAtl4f3jR2vfarpTqYgj8MZuJssSoU7Q==
-  dependencies:
-    "@types/express" "*"
-    "@types/fs-capacitor" "*"
-    "@types/koa" "*"
-    graphql "^15.3.0"
 
 "@types/http-assert@*":
   version "1.5.1"
@@ -1058,7 +1052,7 @@ graphql-upload@^11.0.0:
     isobject "^4.0.0"
     object-path "^0.11.4"
 
-graphql@^15.3.0, graphql@^15.5.0:
+graphql@^15.5.0:
   version "15.5.0"
   resolved "https://registry.yarnpkg.com/graphql/-/graphql-15.5.0.tgz#39d19494dbe69d1ea719915b578bf920344a69d5"
   integrity sha512-OmaM7y0kaK31NKG31q4YbD2beNYa6jBBKtMFT6gLYJljHLJr42IqJ8KX08u3Li/0ifzTU5HjmoOOrwa5BRLeDA==
