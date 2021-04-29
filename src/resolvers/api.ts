@@ -6,12 +6,14 @@ const { name, version } = require(join(__dirname, "..", "..", "package.json"));
 
 const api = resolver(async () => ({ name, version }));
 
+const uptime = resolver(async () => pretty(process.uptime() * 1000));
+
 export const resolvers = {
   Query: {
     api,
   },
 
   API: {
-    uptime: () => pretty(process.uptime() * 1000),
+    uptime,
   },
 };
