@@ -1,6 +1,6 @@
 import _ from "lodash";
-import { resolvers } from "./resolvers/root";
-import { typeDefs } from "./typeDefs/root";
+import { resolvers } from "./resolvers/api";
+import { typeDefs } from "./typeDefs/api";
 import { createApollo } from "@ev-fns/graphql";
 
 const MAX_FILE_SIZE = 50 * 1024 * 1024;
