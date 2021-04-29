@@ -1,4 +1,3 @@
-import _ from "lodash";
 import { resolvers } from "./resolvers/api";
 import { typeDefs } from "./typeDefs/api";
 import { createApollo } from "@ev-fns/graphql";
