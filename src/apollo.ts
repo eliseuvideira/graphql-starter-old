@@ -1,5 +1,5 @@
-import { resolvers } from "./resolvers/api";
-import { typeDefs } from "./typeDefs/api";
+import { resolvers } from "./resolvers";
+import { typeDefs } from "./typeDefs";
 import { createApollo } from "@ev-fns/graphql";
 
 const MAX_FILE_SIZE = 50 * 1024 * 1024;
