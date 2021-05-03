@@ -23,6 +23,7 @@
     "@ev-fns/errors": "^0.1.1",
     "@ev-fns/graphql": "^0.2.8",
     "@ev-fns/server": "^0.2.1",
+    "@ev-fns/spawn": "^0.1.2",
     "apollo-server-express": "^2.24.0",
     "cors": "^2.8.5",
     "express": "^4.17.1",
