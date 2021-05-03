@@ -31,9 +31,11 @@
   },
   "scripts": {
     "build": "tsc",
-    "dev": "ts-node-dev --no-notify src/server.ts",
-    "format": "prettier --write 'src/**/*.ts'",
-    "lint": "eslint 'src/**/*' --ext ts",
+    "dev": "ts-node-dev src/server.ts",
+    "docker-build": "./.docker-build",
+    "docker-push": "./.docker-push",
+    "format": "prettier --write 'src/**/*'",
+    "lint": "eslint --max-warnings=0 'src/**/*'",
     "prepare": "husky install",
     "start": "node build/server.js"
   },
