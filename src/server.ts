@@ -1,24 +1,24 @@
 import dotenv from "@ev-fns/dotenv";
 
 dotenv({}, ({ NODE_ENV, npm_package_version }) => {
-  console.info(NODE_ENV);
-  console.info(npm_package_version);
+  console.info(`🌟 ${NODE_ENV}`);
+  console.info(`🔖 ${npm_package_version}`);
 });
 
 import server from "@ev-fns/server";
 import { installSubscriptions } from "./apollo";
 import app from "./app";
 
-const port = +(process.env.PORT || 3000);
+const PORT = +process.env.PORT || 3000;
 
 server({
   app,
-  port,
+  port: PORT,
   before: async (server) => {
     installSubscriptions(server);
   },
   after: async () => {
-    console.info(`http://localhost:${port}`);
+    console.info(`🚀 http://localhost:${PORT}`);
   },
 }).catch((err) => {
   console.error(err);

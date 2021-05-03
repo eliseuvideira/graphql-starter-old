@@ -1,11 +1,21 @@
 version: "3"
 
+networks:
+  api_network:
+
 services:
   api:
     build: .
     environment:
       - NODE_ENV=production
       - PORT=$PORT
+      - API_NAME=$API_NAME
+    logging:
+      driver: json-file
+      options:
+        max-size: 50m
+    networks:
+      - api_network
     ports:
       - $PORT:$PORT
     restart: always
