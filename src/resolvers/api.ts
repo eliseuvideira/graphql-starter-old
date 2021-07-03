@@ -1,5 +1,5 @@
 import { join } from "path";
-import { resolver } from "@ev-fns/graphql";
+import { resolver } from "@ev-graphql/resolver";
 import pretty from "pretty-ms";
 
 const { name, version } = require(join(__dirname, "..", "..", "package.json"));

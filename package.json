@@ -21,13 +21,17 @@
   "dependencies": {
     "@ev-fns/dotenv": "^0.2.2",
     "@ev-fns/errors": "^0.1.1",
-    "@ev-fns/graphql": "^0.3.3",
     "@ev-fns/server": "^0.2.1",
     "@ev-fns/spawn": "^0.1.2",
+    "@ev-graphql/apollo": "^0.1.9",
+    "@ev-graphql/resolver": "^0.3.1",
+    "@ev-graphql/validation": "^0.1.2",
     "apollo-server-express": "^2.25.1",
     "cors": "^2.8.5",
     "express": "^4.17.1",
     "graphql": "^15.5.0",
+    "graphql-subscriptions": "^1.2.1",
+    "joi": "^17.4.0",
     "pretty-ms": "^7.0.1"
   },
   "scripts": {

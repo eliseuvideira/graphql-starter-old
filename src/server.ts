@@ -6,7 +6,7 @@ dotenv({}, ({ NODE_ENV, npm_package_version }) => {
 });
 
 import server from "@ev-fns/server";
-import { installSubscriptions } from "./apollo";
+import { apollo } from "./apollo";
 import app from "./app";
 
 const PORT = +process.env.PORT || 3000;
@@ -15,7 +15,7 @@ server({
   app,
   port: PORT,
   before: async (server) => {
-    installSubscriptions(server);
+    apollo.subscriptions(server);
   },
   after: async () => {
     console.info(`🚀 http://localhost:${PORT}`);

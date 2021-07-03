@@ -1,13 +1,22 @@
-import { resolvers } from "./resolvers";
-import { typeDefs } from "./typeDefs";
-import { createApollo } from "@ev-fns/graphql";
+import fs from "fs";
+import path from "path";
+import { createApollo } from "@ev-graphql/apollo";
+import { DocumentNode } from "apollo-link";
+import { IResolvers } from "graphql-tools";
 
-const MAX_FILE_SIZE = 50 * 1024 * 1024;
-const MAX_FILES = 1;
+const typeDefs: DocumentNode[] = [];
 
-export const { apollo, apolloUpload, installSubscriptions } = createApollo({
+for (const file of fs.readdirSync(path.join(__dirname, "typeDefs"))) {
+  typeDefs.push(require(path.join(__dirname, "typeDefs", file)).typeDefs);
+}
+
+const resolvers: IResolvers[] = [];
+
+for (const file of fs.readdirSync(path.join(__dirname, "resolvers"))) {
+  resolvers.push(require(path.join(__dirname, "resolvers", file)).resolvers);
+}
+
+export const apollo = createApollo({
   typeDefs,
   resolvers,
-  maxFileSize: MAX_FILE_SIZE,
-  maxFiles: MAX_FILES,
 });
