@@ -3,8 +3,8 @@ import { dotenv } from "@ev-fns/dotenv";
 dotenv();
 
 import server from "@ev-fns/server";
-import { apollo } from "./apollo";
-import app, { middlewares } from "./app";
+import { apollo } from "./utils/apollo";
+import app, { middlewares } from "./utils/app";
 
 const PORT = +process.env.PORT || 3000;
 
