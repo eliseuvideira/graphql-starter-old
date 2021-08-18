@@ -5,7 +5,7 @@ import { apollo } from "./apollo";
 import http from "http";
 import playground from "graphql-playground-middleware-express";
 
-const app = express();
+export const app = express();
 
 export const middlewares = async (
   server: http.Server,
@@ -26,5 +26,3 @@ export const middlewares = async (
   app.use(notFound);
   app.use(exception);
 };
-
-export default app;

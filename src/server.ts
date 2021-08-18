@@ -4,7 +4,7 @@ dotenv();
 
 import server from "@ev-fns/server";
 import { apollo } from "./utils/apollo";
-import app, { middlewares } from "./utils/app";
+import { app, middlewares } from "./utils/app";
 
 const PORT = +process.env.PORT || 3000;
 
