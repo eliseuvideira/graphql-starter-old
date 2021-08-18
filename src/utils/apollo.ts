@@ -3,11 +3,23 @@ import path from "path";
 import { createApollo } from "@ev-graphql/apollo";
 import { DocumentNode } from "graphql";
 import { Context, context } from "./context";
+import { gql } from "apollo-server-core";
+
+const ROOT_TYPE_DEFS = gql`
+  input PaginationInput {
+    offset: Int
+    limit: Int
+  }
+  input SortInput {
+    column: String!
+    order: String
+  }
+`;
 
 const TYPE_DEFS_PATH = path.join(__dirname, "..", "typeDefs");
 const RESOLVERS_PATH = path.join(__dirname, "..", "resolvers");
 
-const typeDefs: DocumentNode[] = [];
+const typeDefs: DocumentNode[] = [ROOT_TYPE_DEFS];
 
 for (const file of fs.readdirSync(TYPE_DEFS_PATH)) {
   const FILEPATH = path.join(TYPE_DEFS_PATH, file);

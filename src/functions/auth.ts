@@ -9,7 +9,7 @@ export const auth = () =>
 
     if (
       !authorization ||
-      !authorization.toLowerCase().startsWith(TOKEN_PREFIX)
+      !authorization.toLowerCase().startsWith(TOKEN_PREFIX.toLowerCase())
     ) {
       res.set("WWW-Authenticate", "Bearer");
       throw new AuthenticationError("Unauthorized");
