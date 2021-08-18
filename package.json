@@ -14,6 +14,7 @@
     "@types/node": "^16.6.1",
     "@typescript-eslint/eslint-plugin": "^4.29.2",
     "@typescript-eslint/parser": "^4.29.2",
+    "commander": "^8.1.0",
     "eslint": "^7.32.0",
     "husky": "^7.0.1",
     "lint-staged": "^11.1.2",
@@ -43,8 +44,7 @@
   "scripts": {
     "build": "tsc",
     "dev": "ts-node-dev src/server.ts",
-    "docker-build": "./.docker-build",
-    "docker-push": "./.docker-push",
+    "docker": "./scripts/docker.js",
     "format": "prettier --write 'src/**/*'",
     "lint": "eslint --max-warnings=0 'src/**/*'",
     "prepare": "husky install",
