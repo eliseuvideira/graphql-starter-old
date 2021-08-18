@@ -1,9 +1,12 @@
 {
   "name": "graphql-starter",
   "version": "0.0.0",
-  "main": "index.js",
+  "main": "build/server.js",
   "author": "Eliseu Videira <eliseuvideira1@gmail.com>",
   "license": "MIT",
+  "engines": {
+    "node": ">=14"
+  },
   "devDependencies": {
     "@types/cors": "^2.8.12",
     "@types/express": "^4.17.13",
@@ -46,11 +49,5 @@
     "lint": "eslint --max-warnings=0 'src/**/*'",
     "prepare": "husky install",
     "start": "node build/server.js"
-  },
-  "lint-staged": {
-    "*.{js,ts}": [
-      "eslint --max-warnings=0",
-      "prettier --check"
-    ]
   }
 }
