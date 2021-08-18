@@ -1,13 +1,10 @@
-import dotenv from "@ev-fns/dotenv";
+import { dotenv } from "@ev-fns/dotenv";
 
-dotenv({}, ({ NODE_ENV, npm_package_version }) => {
-  console.info(`🌟 ${NODE_ENV}`);
-  console.info(`🔖 ${npm_package_version}`);
-});
+dotenv();
 
 import server from "@ev-fns/server";
 import { apollo } from "./apollo";
-import app from "./app";
+import app, { middlewares } from "./app";
 
 const PORT = +process.env.PORT || 3000;
 
@@ -15,7 +12,9 @@ server({
   app,
   port: PORT,
   before: async (server) => {
-    apollo.subscriptions(server);
+    await apollo.server.start();
+
+    await middlewares(server, app);
   },
   after: async () => {
     console.info(`🚀 http://localhost:${PORT}`);
