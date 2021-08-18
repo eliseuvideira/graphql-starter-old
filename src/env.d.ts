@@ -3,5 +3,7 @@ declare namespace NodeJS {
     NODE_ENV: "development" | "test" | "production" | "staging";
     PORT: string;
     API_NAME: string;
+    API_IMAGE: string;
+    API_TOKEN: string;
   }
 }
