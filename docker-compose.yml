@@ -7,14 +7,14 @@ services:
   api:
     build: .
     image: $API_IMAGE
+    env_file:
+      - .env
     environment:
       - NODE_ENV=production
-      - PORT=$PORT
-      - API_NAME=$API_NAME
     logging:
       driver: json-file
       options:
-        max-size: 50m
+        max-size: 10m
     networks:
       - api_network
     ports:
