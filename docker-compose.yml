@@ -11,6 +11,10 @@ services:
       - .env
     environment:
       - NODE_ENV=production
+      - MONGODB_PROTOCOL=mongodb
+      - MONGODB_SERVER=mongo
+    depends_on:
+      - mongo
     logging:
       driver: json-file
       options:
@@ -20,3 +24,24 @@ services:
     ports:
       - $PORT:$PORT
     restart: always
+
+  mongo:
+    image: mongo
+    command: mongod --port $MONGODB_PORT
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME=$MONGODB_USER
+      - MONGO_INITDB_ROOT_PASSWORD=$MONGODB_PASSWORD
+    logging:
+      driver: json-file
+      options:
+        max-size: 10m
+    networks:
+      - api_network
+    ports:
+      - $MONGODB_PORT:$MONGODB_PORT
+    restart: always
+    volumes:
+      - mongodb_volume:/data/db
+
+volumes:
+  mongodb_volume:
