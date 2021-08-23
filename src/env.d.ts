@@ -5,11 +5,5 @@ declare namespace NodeJS {
     API_NAME: string;
     API_IMAGE: string;
     API_TOKEN: string;
-    MONGODB_PROTOCOL: "mongodb" | "mongodb+srv";
-    MONGODB_SERVER: string;
-    MONGODB_PORT: string;
-    MONGODB_USER: string;
-    MONGODB_PASSWORD: string;
-    MONGODB_DATABASE: string;
   }
 }
