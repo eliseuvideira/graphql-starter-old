@@ -1,10 +1,10 @@
 import { auth } from "../../functions/auth";
 import { resolver } from "../../functions/resolver";
 
-const api = resolver(
+const api = resolver<null, Record<string, never>>(
   auth(),
   resolver(async () => {
-    const name = process.env.API_NAME || process.env.npm_package_name;
+    const name = process.env.API_NAME;
     const version = process.env.npm_package_version;
     const environment = process.env.NODE_ENV;
 

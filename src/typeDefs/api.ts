@@ -8,6 +8,6 @@ export const typeDefs = gql`
   type API {
     name: String!
     version: String!
-    uptime: String!
+    environment: String!
   }
 `;
