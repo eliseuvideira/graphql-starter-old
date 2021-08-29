@@ -1,3 +1,4 @@
 .husky/pre-commit linguist-vendored
+database/** linguist-vendored
 scripts/docker.js linguist-vendored
 .env.example linguist-vendored
