@@ -1,6 +1,5 @@
 const { Knex } = require("knex");
 const { SetUpdatedAt } = require("../functions/setUpdatedAt");
-const { ParseRaw } = require("../functions/parseRaw");
 
 const SCHEMA_NAME = "packages";
 const TABLE_NAME = "packages";
@@ -35,13 +34,11 @@ exports.up = async (knex) => {
   });
 
   // Constraints
-  knex.raw(
-    ParseRaw.v1.parseRaw(`
-      alter table "${SCHEMA_NAME}"."${TABLE_NAME}"
-      add constraint "ck_${SCHEMA_NAME}_${TABLE_NAME}_version"
-      check (version ~ '^[0-9]+\.[0-9]+\.[0-9](-[a-z0-9]+)\\?$');
-    `),
-  );
+  knex.raw(`
+    alter table "${SCHEMA_NAME}"."${TABLE_NAME}"
+    add constraint "ck_${SCHEMA_NAME}_${TABLE_NAME}_version"
+    check (version ~ '^[0-9]+\.[0-9]+\.[0-9](-[a-z0-9]+)\\?$');
+  `);
 };
 
 /**

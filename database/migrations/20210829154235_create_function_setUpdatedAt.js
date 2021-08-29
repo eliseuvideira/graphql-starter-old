@@ -5,7 +5,14 @@ const { Knex } = require("knex");
  */
 exports.up = async (knex) => {
   await knex.raw(`
-    create extension "unaccent";
+    create function "setUpdatedAt"()
+    returns trigger
+    as $$
+    begin
+      NEW."updatedAt" = now();
+      return NEW;
+    end
+    $$ language plpgsql;
   `);
 };
 
@@ -14,6 +21,6 @@ exports.up = async (knex) => {
  */
 exports.down = async (knex) => {
   await knex.raw(`
-    drop extension "unaccent";
+    drop function "setUpdatedAt";
   `);
 };
