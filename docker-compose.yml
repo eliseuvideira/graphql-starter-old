@@ -7,10 +7,13 @@ services:
   api:
     build: .
     image: $API_IMAGE
+    depends_on:
+      - postgres
     env_file:
       - .env
     environment:
       - NODE_ENV=production
+      - POSTGRES_HOST=postgres
     logging:
       driver: json-file
       options:
@@ -20,3 +23,26 @@ services:
     ports:
       - $PORT:$PORT
     restart: always
+
+  postgres:
+    image: postgres
+    command: -p $POSTGRES_PORT
+    environment:
+      - PGDATA=/var/lib/postgresql/data
+      - POSTGRES_USER=$POSTGRES_USER
+      - POSTGRES_PASSWORD=$POSTGRES_PASSWORD
+      - POSTGRES_DB=$POSTGRES_DB
+    logging:
+      driver: json-file
+      options:
+        max-size: 10m
+    networks:
+      - api_network
+    ports:
+      - $POSTGRES_PORT:$POSTGRES_PORT
+    restart: always
+    volumes:
+      - postgres_volume:/var/lib/postgresql/data
+
+volumes:
+  postgres_volume:
